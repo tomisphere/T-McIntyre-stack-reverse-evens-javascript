@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Array reversal</title>
+</head>
+<body>
+
+<h2>Reversal of an array</h2>
+<p>Defines the function "reverseArray", which reverses an array of any length.
+ This is then demonstrated by beginning with an array of five string values, as follows: 
+ "order", "original", "not", "reversed", and "direction". 
+ These are displayed in order (to form a sentence of sorts), then the array is reversed and they are displayed again.</p>
+
+<p>Array before reversal:</p>
+<p id="beforeReversal"></p>
+
+<p>Array after reversal:</p>
+<p id="afterReversal"></p>
+
+
+<script>
+
+/* Implements a stack object with push and pop operations,
+  and a stackNotEmpty boolean-valued function.*/
+function stack(){
+	/* "node" is declared as a private instance variable instead of a property
+    so that only object methods may change its value. */
+	var node = new Array();
+	this.pop = function (){
+		return node.pop();
+	};
+	this.push = function (stackItem){
+		return node.push(stackItem);
+	};
+	this.stackNotEmpty = function (){
+		return Boolean(node.length);
+	};
+}
+
+// reverseArray reverses the items in the passed array.  It returns no value.
+function reverseArray(arrayToReverse){
+	var revStack = new stack;
+	var i;
+	for (i=0; i < arrayToReverse.length; i++) {
+		revStack.push(arrayToReverse[i]);
+	}
+	for (i=0; i < arrayToReverse.length; i++) {
+		arrayToReverse[i]=revStack.pop();
+	}
+}
+
+/* arrayAsString returns a string consisting of the elements of a passed array,
+  listed in order, with a space character in between each.  Contains a trailing 
+  space character. */
+function arrayAsString(arrayToPrint){
+	var outputString = "";
+	for (var i=0; i < myArray.length; i++) {
+		outputString = outputString + myArray[i] + " ";
+	}
+	return outputString;
+}
+
+// Create and populate the test array
+var myArray = ["order","original","not","reversed","direction"];
+
+// Print out the array values in original order
+document.getElementById("beforeReversal").innerHTML = arrayAsString(myArray);
+
+// Reverse the array
+reverseArray(myArray);
+
+// Print out the array values after reversal
+document.getElementById("afterReversal").innerHTML = arrayAsString(myArray);
+
+</script>
+
+</body>
+</html>

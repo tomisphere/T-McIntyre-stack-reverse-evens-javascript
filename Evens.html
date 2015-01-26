@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Printing even numbers</title>
+</head>
+<body>
+
+<h2>Print even numbers</h2>
+<p>This prints out a string containing the even numbers from 0 to 100 in order, separated by spaces.</p>
+
+<p id="evenNumbers"></p>
+
+<script>
+var outputString = "";
+for (var i=0;i<=100;i+=2){
+	outputString = outputString + i + " ";
+}
+
+document.getElementById("evenNumbers").innerHTML = outputString;
+
+</script>
+
+</body>
+</html>

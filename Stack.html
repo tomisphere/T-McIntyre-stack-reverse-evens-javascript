@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stack implementation</title>
+</head>
+<body>
+
+<h2>Implemention and test of a stack</h2>
+<p>Defines a stack as the "stack" object.  This is tested by pushing the values
+ "one", "two", and "three" to the stack, in that order. 
+ Then these are printed out as they're popped off until the stack is empty.</p>
+
+<p id="stackTest"></p>
+
+<script>
+
+/* "node" is declared as a private instance variable instead of a property
+   so that only object methods may change its value. */
+function stack(){
+	var node = new Array();
+	this.pop = function (){
+		return node.pop();
+	};
+	this.push = function (stackItem){
+		return node.push(stackItem);
+	};
+	this.stackNotEmpty = function (){
+		return Boolean(node.length);
+	};
+}
+
+var myStack = new stack;
+myStack.push("one");
+myStack.push("two");
+myStack.push("three");
+
+var outputString = "";
+while (myStack.stackNotEmpty()) {
+	outputString = outputString + myStack.pop() + "<br>";
+}
+
+document.getElementById("stackTest").innerHTML = outputString;
+
+</script>
+
+</body>
+</html>
