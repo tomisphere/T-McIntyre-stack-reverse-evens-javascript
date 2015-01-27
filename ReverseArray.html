@@ -49,28 +49,18 @@ function reverseArray(arrayToReverse){
 	}
 }
 
-/* arrayAsString returns a string consisting of the elements of a passed array,
-  listed in order, with a space character in between each.  Contains a trailing 
-  space character. */
-function arrayAsString(arrayToPrint){
-	var outputString = "";
-	for (var i=0; i < myArray.length; i++) {
-		outputString = outputString + myArray[i] + " ";
-	}
-	return outputString;
-}
 
 // Create and populate the test array
 var myArray = ["order","original","not","reversed","direction"];
 
 // Print out the array values in original order
-document.getElementById("beforeReversal").innerHTML = arrayAsString(myArray);
+document.getElementById("beforeReversal").innerHTML = myArray.join(" ");
 
 // Reverse the array
 reverseArray(myArray);
 
 // Print out the array values after reversal
-document.getElementById("afterReversal").innerHTML = arrayAsString(myArray);
+document.getElementById("afterReversal").innerHTML = myArray.join(" ");
 
 </script>
 
